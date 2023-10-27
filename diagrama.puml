@@ -1,0 +1,25 @@
+@startuml
+interface es.ull.patrones.practica3.Elements.Ball {
+~ void throwBall()
+}
+interface es.ull.patrones.practica3.Elements.Footwear {
+~ void putOn()
+}
+interface es.ull.patrones.practica3.Elements.TShirt {
+~ void wearTShirt()
+}
+interface es.ull.patrones.practica3.Factories.SportClothFactory {
+~ Ball createBall()
+~ Footwear createFootwear()
+~ TShirt createTShirt()
+}
+class es.ull.patrones.practica3.SportPerson {
+- Ball ball
+- TShirt tshirt
+- Footwear footwear
++ void showInfo()
+}
+class es.ull.patrones.practica3.Main {
++ {static} void main(String[])
+}
+@enduml
