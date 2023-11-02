@@ -1,0 +1,14 @@
+ID_DEPORTE,N_DEPORTE,ID_OBJETO,OBJETO,IMAGEN,PRECIO,existencia,categoria_id
+1,Futbol,1,Balon de Futbol,,25.99,100,1
+1,Futbol,2,Zapatos de Futbol,,49.99,50,1
+1,Futbol,3,Camiseta de Futbol,,19.99,150,1
+2,Padel,4,Pelota de Padel,raqueta_tenis.jpg,89.99,30,2
+2,Padel,4,Raqueta de Padel,raqueta_tenis.jpg,89.100,30,2
+2,Padel,6,Camiseta de Padel,ropa_tenis.jpg,39.99,40,2
+3,Natacion,7,Traje de Bano,traje_natacion.jpg,29.99,20,3
+3,Natacion,8,Gafas de Natacion,gafas_natacion.jpg,12.99,50,3
+3,Natacion,9,Gorro de Natacion,gorro_natacion.jpg,7.99,75,3
+4,Baloncesto,10,Balon de Baloncesto,balon_baloncesto.jpg,29.99,80,1
+4,Baloncesto,11,Zapatillas de Baloncesto,zapatos_baloncesto.jpg,59.99,40,1
+4,Baloncesto,12,Camiseta de Baloncesto,camiseta_baloncesto.jpg,24.99,120,1
+2,Padel,13,Zapatilla de Padel,Zapatilla_padel.jpg,99.99,200,2
