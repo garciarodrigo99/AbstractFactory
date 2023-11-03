@@ -33,6 +33,11 @@
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version> <!-- Asegúrate de usar la versión correcta -->
         </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.8</version> <!-- Reemplaza esto con la última versión disponible -->
+        </dependency>
     </dependencies>
 
 
