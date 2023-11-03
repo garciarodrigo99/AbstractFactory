@@ -13,6 +13,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class FootballElementViewer implements SportsElementViewer {
     private JList<String> elementList;
     private DefaultListModel<String> listModel;
@@ -55,10 +56,16 @@ public class FootballElementViewer implements SportsElementViewer {
 
                 if (selectedElement instanceof Ball) {
                     descriptionLabel.setText(((Ball) selectedElement).getDescription());
+                    FutbolBall fb = ((FutbolBall) selectedElement);
+                    mostrarImagen(fb.getLink(),fb.toString());
                 } else if (selectedElement instanceof Footwear) {
                     descriptionLabel.setText(((Footwear) selectedElement).getDescription());
+                    FutbolBoots fb = ((FutbolBoots) selectedElement);
+                    mostrarImagen(fb.getLink(),fb.toString());
                 } else if (selectedElement instanceof TShirt) {
                     descriptionLabel.setText(((TShirt) selectedElement).getDescription());
+                    FutbolTShirt fts = ((FutbolTShirt) selectedElement);
+                    mostrarImagen(fts.getLink(),fts.toString());
                 }
             }
         });
@@ -77,6 +84,13 @@ public class FootballElementViewer implements SportsElementViewer {
 
         footballElements.forEach(element -> {
             listModel.addElement(element.toString());
+        });
+    }
+
+    private void mostrarImagen(String URL, String titulo){
+        SwingUtilities.invokeLater(() -> {
+            ventanaImagen frame = new ventanaImagen(URL,titulo);
+            frame.setVisible(true);
         });
     }
 
