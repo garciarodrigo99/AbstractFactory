@@ -12,3 +12,4 @@
 
 [PRESENTACION](https://prezi.com/view/ae4s8ubA6PeBjnYNZUg1/)
 
+[BASE DE DATOS](https://docs.google.com/spreadsheets/d/15CGlxvh_vx0DjN57niWwfaEO0sGDB-LB_9ls9-SQLQk/edit#gid=0)
