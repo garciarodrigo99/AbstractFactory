@@ -1,14 +1,11 @@
 package es.ull.patrones.practica3.Elements;
 
-import es.ull.patrones.practica3.Elements.Ball;
-
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+
 
 public class PadelBall implements Ball {
     private String name;
@@ -36,6 +33,7 @@ public class PadelBall implements Ball {
     @Override
     public String getDescription() {
         return "Padel Ball: Name - " + getName() + ", Price - $" + getPrice() + ", Stock - " + getStock() + " units";
+
     }
 
     public String getImage() {
@@ -46,6 +44,11 @@ public class PadelBall implements Ball {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return this.getName(); // Suponiendo que la clase PadelBall tiene un método getName() que devuelve el nombre del elemento.
+    }
+
     public double getPrice() {
         return price;
     }
@@ -54,42 +57,16 @@ public class PadelBall implements Ball {
         return stock;
     }
 
-    /*public void showImage() {
+    public void mostrarImage() {
         SwingUtilities.invokeLater(() -> {
-            JFrame imageFrame = new JFrame(name);
-            imageFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-            ImageIcon imageIcon = new ImageIcon(image.getAbsolutePath());
-            JLabel imageLabel = new JLabel(imageIcon);
-
-            imageFrame.add(imageLabel);
-            imageFrame.pack();
-            imageFrame.setVisible(true);
+            ImageDisplayFrame frame = new ImageDisplayFrame(image);
+            frame.setVisible(true);
         });
-    }*/
-
-    public void showImage() {
-        try {
-            URL url = new URL(getImage());
-            BufferedImage image = ImageIO.read(url);
-
-            if (image != null) {
-                // Display the image in a JLabel
-                ImageIcon icon = new ImageIcon(image);
-                JLabel imageLabel = new JLabel(icon);
-
-                // Create a dialog to display the image
-                JFrame imageFrame = new JFrame("Padel Ball Image");
-                imageFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                imageFrame.getContentPane().add(imageLabel);
-                imageFrame.pack();
-                imageFrame.setVisible(true);
-            } else {
-                System.err.println("Image is null. It may not be in a supported format.");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
-
 }
+
+
+
+
+
+

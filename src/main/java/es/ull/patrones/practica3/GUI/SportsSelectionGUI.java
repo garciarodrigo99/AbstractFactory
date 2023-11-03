@@ -1,8 +1,5 @@
 package es.ull.patrones.practica3.GUI;
 
-import es.ull.patrones.practica3.Factories.PadelFactory;
-import es.ull.patrones.practica3.Factories.SportFactory;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -40,13 +37,12 @@ public class SportsSelectionGUI extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String selectedSport = sport; // Obtiene el deporte seleccionado desde el botón
-                    SportFactory factory = createFactoryForSport(selectedSport);
+                    //SportFactory factory = createFactoryForSport(selectedSport);
 
-
-                    if (factory != null) {
+                    if (selectedSport != null) {
                         // Por ejemplo, puedes llamar a un método para mostrar los elementos
-                        //viewer.loadAndDisplayElements();
-                        SportsElementViewer viewer = createViewerForSport(factory);
+                        SportsElementViewer viewer = createViewerForSport(selectedSport);
+
                     } else {
                         // Maneja el caso en el que no se encuentre una fábrica o visor adecuado
                         System.out.println("No se encontró una fábrica o visor adecuado para el deporte seleccionado.");
@@ -122,17 +118,9 @@ public class SportsSelectionGUI extends JFrame {
         return sportsSet;
     }
 
-    private SportFactory createFactoryForSport(String sport) {
-        // Implementa la creación de la fábrica según el deporte seleccionado
-            if (sport.equals("Padel")) {
-                return new PadelFactory();
-            }
-        return null;
-    }
-
-    private SportsElementViewer createViewerForSport(SportFactory factory) {
+    private SportsElementViewer createViewerForSport(String sport) {
         // Implementa la creación de visores según la fábrica seleccionada
-        if (factory != null) {
+        if (sport != null) {
             // Por ejemplo, si tienes una implementación SportsElementViewer para cada deporte
             return new PadelElementViewer();
         }

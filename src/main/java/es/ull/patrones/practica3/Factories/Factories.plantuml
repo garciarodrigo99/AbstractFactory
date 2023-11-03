@@ -2,31 +2,33 @@
 
 title __FACTORIES's Class Diagram__\n
 
-  namespace es.ull.patrones.practica3 {
-    namespace Factories {
-      class es.ull.patrones.practica3.Factories.PadelFactory {
-          + createBall()
-          + createFootwear()
-          + createTShirt()
-          + createViewer()
-      }
+  namespace es.ull.patrones.practica3.Factories {
+    class es.ull.patrones.practica3.Factories.PadelFactory {
+        - listModel : DefaultListModel<String>
+        - padelElements : List<Object>
+        + PadelFactory()
+        + createBall()
+        + createFootwear()
+        + createTShirt()
+        + getElement()
+        + loadPadelElementsFromCSV()
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Factories {
-      interface es.ull.patrones.practica3.Factories.SportFactory {
-          {abstract} + createBall()
-          {abstract} + createFootwear()
-          {abstract} + createTShirt()
-          {abstract} + createViewer()
-      }
+  namespace es.ull.patrones.practica3.Factories {
+    interface es.ull.patrones.practica3.Factories.SportFactory {
+        {abstract} + createBall()
+        {abstract} + createFootwear()
+        {abstract} + createTShirt()
     }
   }
   
 
   es.ull.patrones.practica3.Factories.PadelFactory .up.|> es.ull.patrones.practica3.Factories.SportFactory
+  es.ull.patrones.practica3.Factories.PadelFactory o-- es.ull.patrones.practica3.Elements.PadelBall : padelBall
+  es.ull.patrones.practica3.Factories.PadelFactory o-- es.ull.patrones.practica3.Elements.PadelFootwear : padelFootwear
+  es.ull.patrones.practica3.Factories.PadelFactory o-- es.ull.patrones.practica3.Elements.PadelTShirt : padelTshirt
 
 
 right footer

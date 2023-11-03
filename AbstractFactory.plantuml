@@ -2,96 +2,68 @@
 
 title __EJEMPLOABSTRACTFACTORY's Class Diagram__\n
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      interface es.ull.patrones.practica3.Elements.Ball {
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    interface es.ull.patrones.practica3.Elements.Ball {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      interface es.ull.patrones.practica3.Elements.Footwear {
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    interface es.ull.patrones.practica3.Elements.Footwear {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      class es.ull.patrones.practica3.Elements.PadelBall {
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    class es.ull.patrones.practica3.Elements.PadelBall {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      class es.ull.patrones.practica3.Elements.PadelFootwear {
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    class es.ull.patrones.practica3.Elements.PadelFootwear {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      class es.ull.patrones.practica3.Elements.PadelTShirt {
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    class es.ull.patrones.practica3.Elements.PadelTShirt {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      interface es.ull.patrones.practica3.Elements.TShirt {
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    interface es.ull.patrones.practica3.Elements.TShirt {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Factories {
-      class es.ull.patrones.practica3.Factories.PadelFactory {
-      }
+  namespace es.ull.patrones.practica3.Factories {
+    class es.ull.patrones.practica3.Factories.PadelFactory {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Factories {
-      interface es.ull.patrones.practica3.Factories.SportFactory {
-      }
+  namespace es.ull.patrones.practica3.Factories {
+    interface es.ull.patrones.practica3.Factories.SportFactory {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace GUI {
-      class es.ull.patrones.practica3.GUI.PadelElementViewer {
-      }
+  namespace es.ull.patrones.practica3.GUI {
+    class es.ull.patrones.practica3.GUI.PadelElementViewer {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace GUI {
-      interface es.ull.patrones.practica3.GUI.SportsElementViewer {
-      }
+  namespace es.ull.patrones.practica3.GUI {
+    interface es.ull.patrones.practica3.GUI.SportsElementViewer {
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace GUI {
-      class es.ull.patrones.practica3.GUI.SportsSelectionGUI {
-      }
-    }
-  }
-  
-
-  namespace es.ull.patrones.practica3 {
-    class es.ull.patrones.practica3.SportPerson {
+  namespace es.ull.patrones.practica3.GUI {
+    class es.ull.patrones.practica3.GUI.SportsSelectionGUI {
     }
   }
   
@@ -100,14 +72,15 @@ title __EJEMPLOABSTRACTFACTORY's Class Diagram__\n
   es.ull.patrones.practica3.Elements.PadelFootwear .up.|> es.ull.patrones.practica3.Elements.Footwear
   es.ull.patrones.practica3.Elements.PadelTShirt .up.|> es.ull.patrones.practica3.Elements.TShirt
   es.ull.patrones.practica3.Factories.PadelFactory .up.|> es.ull.patrones.practica3.Factories.SportFactory
+  es.ull.patrones.practica3.Factories.PadelFactory o-- es.ull.patrones.practica3.Elements.PadelBall : padelBall
+  es.ull.patrones.practica3.Factories.PadelFactory o-- es.ull.patrones.practica3.Elements.PadelFootwear : padelFootwear
+  es.ull.patrones.practica3.Factories.PadelFactory o-- es.ull.patrones.practica3.Elements.PadelTShirt : padelTshirt
   es.ull.patrones.practica3.GUI.PadelElementViewer .up.|> es.ull.patrones.practica3.GUI.SportsElementViewer
   es.ull.patrones.practica3.GUI.PadelElementViewer o-- es.ull.patrones.practica3.Elements.PadelBall : padelBall
+  es.ull.patrones.practica3.GUI.PadelElementViewer o-- es.ull.patrones.practica3.Factories.PadelFactory : padelFactory
   es.ull.patrones.practica3.GUI.PadelElementViewer o-- es.ull.patrones.practica3.Elements.PadelFootwear : padelFootwear
   es.ull.patrones.practica3.GUI.PadelElementViewer o-- es.ull.patrones.practica3.Elements.PadelTShirt : padelTshirt
   es.ull.patrones.practica3.GUI.SportsSelectionGUI -up-|> javax.swing.JFrame
-  es.ull.patrones.practica3.SportPerson o-- es.ull.patrones.practica3.Elements.Ball : ball
-  es.ull.patrones.practica3.SportPerson o-- es.ull.patrones.practica3.Elements.Footwear : footwear
-  es.ull.patrones.practica3.SportPerson o-- es.ull.patrones.practica3.Elements.TShirt : tshirt
 
 
 right footer

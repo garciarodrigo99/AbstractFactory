@@ -2,93 +2,86 @@
 
 title __ELEMENTS's Class Diagram__\n
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      interface es.ull.patrones.practica3.Elements.Ball {
-          {abstract} + getDescription()
-          {abstract} + throwBall()
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    interface es.ull.patrones.practica3.Elements.Ball {
+        {abstract} + getDescription()
+        {abstract} + getName()
+        {abstract} + throwBall()
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      interface es.ull.patrones.practica3.Elements.Footwear {
-          {abstract} + getDescription()
-          {abstract} + putOn()
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    interface es.ull.patrones.practica3.Elements.Footwear {
+        {abstract} + getDescription()
+        {abstract} + putOn()
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      class es.ull.patrones.practica3.Elements.PadelBall {
-          - image : File
-          - name : String
-          - price : double
-          - stock : int
-          + PadelBall()
-          + PadelBall()
-          + getDescription()
-          + getImageName()
-          + getName()
-          + getPrice()
-          + getStock()
-          + showImage()
-          + throwBall()
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    class es.ull.patrones.practica3.Elements.PadelBall {
+        - image : String
+        - name : String
+        - price : double
+        - stock : int
+        + PadelBall()
+        + PadelBall()
+        + getDescription()
+        + getImage()
+        + getName()
+        + getPrice()
+        + getStock()
+        + throwBall()
+        + toString()
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      class es.ull.patrones.practica3.Elements.PadelFootwear {
-          - image : String
-          - name : String
-          - price : double
-          - stock : int
-          + PadelFootwear()
-          + PadelFootwear()
-          + getDescription()
-          + getImageName()
-          + getName()
-          + getPrice()
-          + getStock()
-          + putOn()
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    class es.ull.patrones.practica3.Elements.PadelFootwear {
+        - image : String
+        - name : String
+        - price : double
+        - stock : int
+        + PadelFootwear()
+        + PadelFootwear()
+        + getDescription()
+        + getImage()
+        + getName()
+        + getPrice()
+        + getStock()
+        + putOn()
+        + showImage()
+        + toString()
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      class es.ull.patrones.practica3.Elements.PadelTShirt {
-          - image : String
-          - name : String
-          - price : double
-          - stock : int
-          + PadelTShirt()
-          + PadelTShirt()
-          + getDescription()
-          + getImageName()
-          + getName()
-          + getPrice()
-          + getStock()
-          + wearTShirt()
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    class es.ull.patrones.practica3.Elements.PadelTShirt {
+        - image : String
+        - name : String
+        - price : double
+        - stock : int
+        + PadelTShirt()
+        + PadelTShirt()
+        + getDescription()
+        + getImage()
+        + getName()
+        + getPrice()
+        + getStock()
+        + showImage()
+        + toString()
+        + wearTShirt()
     }
   }
   
 
-  namespace es.ull.patrones.practica3 {
-    namespace Elements {
-      interface es.ull.patrones.practica3.Elements.TShirt {
-          {abstract} + getDescription()
-          {abstract} + wearTShirt()
-      }
+  namespace es.ull.patrones.practica3.Elements {
+    interface es.ull.patrones.practica3.Elements.TShirt {
+        {abstract} + getDescription()
+        {abstract} + wearTShirt()
     }
   }
   
