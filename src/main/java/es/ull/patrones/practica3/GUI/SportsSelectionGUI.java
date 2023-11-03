@@ -133,6 +133,8 @@ public class SportsSelectionGUI extends JFrame {
             // Por ejemplo, si tienes una implementación SportsElementViewer para cada deporte
             if(sport.equals("Baloncesto")){
                 return new BaloncestoElementViewer();
+            } else if(sport.equals("Padel")) {
+                return new PadelElementViewer();
             }
             return new FootballElementViewer();
         }

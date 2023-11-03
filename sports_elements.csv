@@ -5,9 +5,9 @@ ID_DEPORTE,N_DEPORTE,ID_ELEMENTO,ELEMENTO,IMAGEN,PRECIO,existencia,ID_OBJETO
 2,Padel,4,Pelota de Padel,https://www.deportesmazarracin.com/32803-large_default/Pelota-HEAD-PADEL-PRO-Bote-3-Bolas-575613.jpg,89.99,30,1
 2,Padel,5,Raqueta de Padel,https://contents.mediadecathlon.com/p2463624/k$5fef1e231da7f15e407fe93de9cce582/pr-120-rojo.jpg?format=auto&quality=40&f=800x800,89.100,30,1
 2,Padel,6,Camiseta de Padel,https://kombatpadel.com/767-large_default/camiseta-de-juego-naranja-kmbt-padel.jpg,39.99,40,1
-3,Rugby,7,Balon de Rugby,traje_natacion.jpg,29.99,20,1
-3,Rugby,8,Zapatos de Futbol,gafas_natacion.jpg,12.99,50,1
-3,Rugby,9,Camiseta de Rugby,gorro_natacion.jpg,7.99,75,1
+3,Natacion,7,Balon de Rugby,traje_natacion.jpg,29.99,20,1
+3,Natacion,8,Zapatos de Futbol,gafas_natacion.jpg,12.99,50,1
+3,Natacion,9,Camiseta de Rugby,gorro_natacion.jpg,7.99,75,1
 4,Baloncesto,10,Balon de Baloncesto,https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00068934437939L.jpg?odnHeight=612&odnWidth=612&odnBg=FFFFFF,29.99,80,1
 4,Baloncesto,11,Zapatillas de Baloncesto, https://unicosmoderna.com/cdn/shop/files/TENIS-NIKE-LEBRON-WITNESS-V-CQ9380-006-UNISEX-BLANCO-A.jpg?v=1684776708&width=1200,59.99,40,1
 4,Baloncesto,12,Camiseta de Baloncesto, https://img.europapress.es/fotoweb/fotonoticia_20101202124653_1024.jpg,24.99,120,1
