@@ -1,17 +1,91 @@
 @startuml
+class es.ull.patrones.practica3.GUI.ventanaImagen {
+}
 interface es.ull.patrones.practica3.Elements.Ball {
 ~ void throwBall()
+~ String getDescription()
 }
 interface es.ull.patrones.practica3.Elements.Footwear {
 ~ void putOn()
+~ String getDescription()
+}
+class es.ull.patrones.practica3.GUI.SportsSelectionGUI {
+- JComboBox<String> sportComboBox
+- JButton selectSportButton
+- Set<String> sports
+- boolean downloadCSVFromURL(String,String)
+- Set<String> downloadAndLoadCSV()
+- Set<String> loadSportsFromCSV(String)
+- SportsElementViewer createViewerForSport(String)
++ {static} void main(String[])
+}
+class es.ull.patrones.practica3.GUI.FootballElementViewer {
+- JList<String> elementList
+- DefaultListModel<String> listModel
+- List<Object> footballElements
+- FutbolFactory footballFactory
+- FutbolBall footballBall
+- FutbolBoots footballBoots
+- FutbolTShirt footballTShirt
+- JLabel descriptionLabel
++ void loadAndDisplayElements()
+- void mostrarImagen(String,String)
++ {static} void main(String[])
+}
+class es.ull.patrones.practica3.Factories.FutbolFactory {
+- String ID_DEPORTE
+- List<String> cabecera
+- List<String[]> footballCSV
++ Ball createBall()
++ Footwear createFootwear()
++ TShirt createTShirt()
++ List<Object> loadElements()
+}
+interface es.ull.patrones.practica3.GUI.SportsElementViewer {
+~ void loadAndDisplayElements()
+}
+class es.ull.patrones.practica3.Elements.FootballElements.FutbolBall {
+- String link
+- Double price
+- Integer existencias
++ String getLink()
++ Double getPrice()
++ Integer getExistencias()
++ void throwBall()
++ String getDescription()
++ String toString()
+}
+class es.ull.patrones.practica3.Elements.FootballElements.FutbolBoots {
+- String link
+- Double price
+- Integer existencias
++ String getLink()
++ Double getPrice()
++ Integer getExistencias()
++ void putOn()
++ String getDescription()
++ String toString()
+}
+class es.ull.patrones.practica3.Elements.FootballElements.FutbolTShirt {
+- String link
+- Double price
+- Integer existencias
++ String getLink()
++ Double getPrice()
++ Integer getExistencias()
++ void wearTShirt()
++ String getDescription()
++ String toString()
 }
 interface es.ull.patrones.practica3.Elements.TShirt {
 ~ void wearTShirt()
+~ String getDescription()
 }
 interface es.ull.patrones.practica3.Factories.SportFactory {
 ~ Ball createBall()
 ~ Footwear createFootwear()
 ~ TShirt createTShirt()
+~ List<Object> loadElements()
 }
 class es.ull.patrones.practica3.SportPerson {
 - Ball ball
@@ -19,7 +93,16 @@ class es.ull.patrones.practica3.SportPerson {
 - Footwear footwear
 + void showInfo()
 }
-class es.ull.patrones.practica3.Main {
+class es.ull.patrones.practica3.pruebaFactory {
 + {static} void main(String[])
 }
+
+
+es.ull.patrones.practica3.GUI.JFrame <|-- es.ull.patrones.practica3.GUI.ventanaImagen
+es.ull.patrones.practica3.GUI.JFrame <|-- es.ull.patrones.practica3.GUI.SportsSelectionGUI
+es.ull.patrones.practica3.GUI.SportsElementViewer <|.. es.ull.patrones.practica3.GUI.FootballElementViewer
+es.ull.patrones.practica3.Factories.SportFactory <|.. es.ull.patrones.practica3.Factories.FutbolFactory
+es.ull.patrones.practica3.Elements.Ball <|.. es.ull.patrones.practica3.Elements.FootballElements.FutbolBall
+es.ull.patrones.practica3.Elements.Footwear <|.. es.ull.patrones.practica3.Elements.FootballElements.FutbolBoots
+es.ull.patrones.practica3.Elements.TShirt <|.. es.ull.patrones.practica3.Elements.FootballElements.FutbolTShirt
 @enduml

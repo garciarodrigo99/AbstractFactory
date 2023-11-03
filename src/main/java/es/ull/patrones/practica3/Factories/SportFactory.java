@@ -13,4 +13,6 @@ public interface SportFactory {
     TShirt createTShirt();
 
     List<Object> loadElements();
+
+//    SportsElementViewer createViewer();
 }

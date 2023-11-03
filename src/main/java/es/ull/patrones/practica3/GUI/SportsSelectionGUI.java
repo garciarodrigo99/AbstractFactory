@@ -131,6 +131,9 @@ public class SportsSelectionGUI extends JFrame {
         // Implementa la creación de visores según la fábrica seleccionada
         if (sport != null) {
             // Por ejemplo, si tienes una implementación SportsElementViewer para cada deporte
+            if(sport.equals("Baloncesto")){
+                return new BaloncestoElementViewer();
+            }
             return new FootballElementViewer();
         }
         return null;
