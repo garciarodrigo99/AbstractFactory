@@ -27,7 +27,7 @@ public class BaloncestoElementViewer implements SportsElementViewer {
 
 
     public BaloncestoElementViewer() throws CsvValidationException, IOException {
-        JFrame frame = new JFrame("Elementos de Padel");
+        JFrame frame = new JFrame("Elementos de Baloncesto");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(1000, 1000);
         frame.setLocationRelativeTo(null);
@@ -93,18 +93,6 @@ public class BaloncestoElementViewer implements SportsElementViewer {
         SwingUtilities.invokeLater(() -> {
             WindowPicture frame = new WindowPicture(URL,title);
             frame.setVisible(true);
-        });
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            try {
-                new BaloncestoElementViewer();
-            } catch (CsvValidationException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
         });
     }
 }
