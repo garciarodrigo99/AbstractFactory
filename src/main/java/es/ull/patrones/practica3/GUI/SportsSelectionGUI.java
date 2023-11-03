@@ -1,5 +1,6 @@
 package es.ull.patrones.practica3.GUI;
 
+import com.opencsv.exceptions.CsvValidationException;
 import es.ull.patrones.practica3.Factories.SportFactory;
 
 import javax.swing.*;
@@ -39,17 +40,21 @@ public class SportsSelectionGUI extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String selectedSport = sport; // Obtiene el deporte seleccionado desde el botón
+                    //SportFactory factory = createFactoryForSport(selectedSport);
 
-                    try {
-                        Class<?> factoryClass = Class.forName("es.ull.patrones.practica3.Factories." + selectedSport + "Factory");
-                        SportFactory factory = (SportFactory) factoryClass.getDeclaredConstructor().newInstance();
+                    if (selectedSport != null) {
+                        // Por ejemplo, puedes llamar a un método para mostrar los elementos
+                        try {
+                            SportsElementViewer viewer = createViewerForSport(selectedSport);
+                        } catch (CsvValidationException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
-                        Class<?> viewerClass = Class.forName("es.ull.patrones.practica3.GUI." + selectedSport + "ElementViewer");
-                        SportsElementViewer viewer = (SportsElementViewer) viewerClass.getDeclaredConstructor().newInstance();
-
-                        // Utiliza factory y viewer para mostrar los elementos
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
+                    } else {
+                        // Maneja el caso en el que no se encuentre una fábrica o visor adecuado
+                        System.out.println("No se encontró una fábrica o visor adecuado para el deporte seleccionado.");
                     }
                 }
             });
@@ -122,19 +127,11 @@ public class SportsSelectionGUI extends JFrame {
         return sportsSet;
     }
 
-    private SportFactory createFactoryForSport(String sport) {
-        // Implementa la creación de la fábrica según el deporte seleccionado
-            if (sport.equals("Padel")) {
-                //return new PadelFactory();
-            }
-        return null;
-    }
-
-    private SportsElementViewer createViewerForSport(SportFactory factory) {
+    private SportsElementViewer createViewerForSport(String sport) throws CsvValidationException, IOException {
         // Implementa la creación de visores según la fábrica seleccionada
-        if (factory != null) {
+        if (sport != null) {
             // Por ejemplo, si tienes una implementación SportsElementViewer para cada deporte
-            // return new PadelElementViewer();
+            return new FootballElementViewer();
         }
         return null;
     }

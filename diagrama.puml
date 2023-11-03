@@ -8,7 +8,7 @@ interface es.ull.patrones.practica3.Elements.Footwear {
 interface es.ull.patrones.practica3.Elements.TShirt {
 ~ void wearTShirt()
 }
-interface es.ull.patrones.practica3.Factories.SportClothFactory {
+interface es.ull.patrones.practica3.Factories.SportFactory {
 ~ Ball createBall()
 ~ Footwear createFootwear()
 ~ TShirt createTShirt()

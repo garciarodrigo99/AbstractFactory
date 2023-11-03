@@ -5,10 +5,12 @@ import es.ull.patrones.practica3.Elements.Footwear;
 import es.ull.patrones.practica3.Elements.TShirt;
 import es.ull.patrones.practica3.GUI.SportsElementViewer;
 
+import java.util.List;
+
 public interface SportFactory {
     Ball createBall();
     Footwear createFootwear();
     TShirt createTShirt();
 
-    SportsElementViewer createViewer();
+    List<Object> loadElements();
 }
