@@ -1,5 +1,8 @@
 package es.ull.patrones.practica3.GUI;
 
+import com.opencsv.exceptions.CsvValidationException;
+import es.ull.patrones.practica3.Factories.SportFactory;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
+
+//import sun.security.util.Debug.args;
 
 public class SportsSelectionGUI extends JFrame {
     private JComboBox<String> sportComboBox;
@@ -41,7 +46,22 @@ public class SportsSelectionGUI extends JFrame {
 
                     if (selectedSport != null) {
                         // Por ejemplo, puedes llamar a un método para mostrar los elementos
-                        SportsElementViewer viewer = createViewerForSport(selectedSport);
+
+                        SportsElementViewer viewer = null;
+                        try {
+                            viewer = createViewerForSport(selectedSport);
+                        } catch (CsvValidationException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        try {
+                            viewer = createViewerForSport(selectedSport);
+                        } catch (CsvValidationException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                     } else {
                         // Maneja el caso en el que no se encuentre una fábrica o visor adecuado
@@ -118,11 +138,15 @@ public class SportsSelectionGUI extends JFrame {
         return sportsSet;
     }
 
-    private SportsElementViewer createViewerForSport(String sport) {
+    private SportsElementViewer createViewerForSport(String sport) throws CsvValidationException, IOException {
         // Implementa la creación de visores según la fábrica seleccionada
         if (sport != null) {
             // Por ejemplo, si tienes una implementación SportsElementViewer para cada deporte
-            return new PadelElementViewer();
+            if (sport == "Padel") {
+                return new PadelElementViewer();
+            } else if (sport == "Baloncesto") {
+                return new BaloncestoElementViewer();
+            }
         }
         return null;
     }

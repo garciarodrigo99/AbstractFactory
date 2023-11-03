@@ -35,7 +35,7 @@ public class PadelElementViewer implements SportsElementViewer {
 
 
         descriptionLabel = new JLabel();
-        padelFactory = new PadelFactory();
+        padelFactory = new PadelFactory("sports_elements.csv");
 
         //padelElements = padelFactory.getElement();
 

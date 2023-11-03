@@ -2,37 +2,31 @@ package es.ull.patrones.practica3.Factories;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import es.ull.patrones.practica3.Elements.*;
+import es.ull.patrones.practica3.Elements.Ball;
 import es.ull.patrones.practica3.Elements.BasketballElements.BaloncestoBall;
 import es.ull.patrones.practica3.Elements.BasketballElements.BaloncestoFootwear;
 import es.ull.patrones.practica3.Elements.BasketballElements.BaloncestoTShirt;
+import es.ull.patrones.practica3.Elements.Footwear;
+import es.ull.patrones.practica3.Elements.TShirt;
 import es.ull.patrones.practica3.GUI.SportsElementViewer;
 
-import javax.swing.*;
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PadelFactory implements SportFactory {
-    private DefaultListModel<String> listModel;
-    private List<Object> padelElements = new ArrayList<>();
-    private PadelBall padelBall;
-    private PadelFootwear padelFootwear;
-    private PadelTShirt padelTshirt;
+
+public class BaloncestoFactory implements SportFactory {
+
+//    private List<Object> lo;
+
     private final String ID_DEPORTE = "4";
 
     private List<String> cabecera; // Para almacenar la cabecera
     private List<String[]> basketballCsv = new ArrayList<>();
 
-    public List<Object> getElement() {
-        return padelElements;
-    }
-    public PadelFactory(String rutaCSV) {
+    public BaloncestoFactory(String rutaCSV) throws IOException, CsvValidationException {
         cabecera = null; // Inicialmente, la cabecera es nula
-
-        listModel = new DefaultListModel<>();
 
         try {
             CSVReader reader = new CSVReader(new FileReader(rutaCSV));
@@ -51,10 +45,10 @@ public class PadelFactory implements SportFactory {
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (CsvValidationException e) {
-            throw new RuntimeException(e);
         }
     }
+
+    public BaloncestoFactory() {}
 
     @Override
     public SportsElementViewer createViewer() {
@@ -64,17 +58,17 @@ public class PadelFactory implements SportFactory {
     /*
         @Override
         public Ball createBall(String name, double price, int stock, String imagePath) {
-            return new PadelBall(name, price, stock, imagePath);
+            return null;
         }
 
         @Override
         public Footwear createFootwear(String name, double price, int stock, String imagePath) {
-            return new PadelFootwear(name, price, stock, imagePath);
+            return null;
         }
 
         @Override
         public TShirt createTShirt(String name, double price, int stock, String imagePath) {
-            return new PadelTShirt(name, price, stock, imagePath);
+            return null;
         }
         */
     @Override
@@ -130,51 +124,9 @@ public class PadelFactory implements SportFactory {
         lo.add(createTShirt());
         return lo;
     }
-
-    public List<Object> loadPadelElementsFromCSV(String csvFileName) {
-        List<Object> sportsSet = new ArrayList<>();
-
-        boolean skipFirstLine = true;
-
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFileName))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (skipFirstLine) {
-                    skipFirstLine = false;
-                    continue;
-                }
-
-                String[] parts = line.split(",");
-                if (parts.length >= 2) {
-                    String type = parts[1].trim();
-                    String name = parts[3].trim();
-                    String imagePath = parts[4].trim();
-
-                    double price = Double.parseDouble(parts[5].trim());
-                    int stock = Integer.parseInt(parts[6].trim());
-
-                    //System.out.println("Type: " + type);
-                    //System.out.println("Name: " + name);
-
-                    if ("Pelota de Padel".equals(name)) {
-                        padelBall = new PadelBall(name, price, stock, imagePath);
-                        padelBall = new PadelBall();
-                        sportsSet.add(padelBall);
-                    } else if ("Raqueta de Padel".equals(name) || "Zapatilla de Padel".equals(name)) {
-                        padelFootwear = new PadelFootwear(name, price, stock, imagePath);
-                        sportsSet.add(padelFootwear);
-                    } else if ("Camiseta de Padel".equals(name)) {
-                        padelTshirt = new PadelTShirt(name, price, stock, imagePath);
-                        sportsSet.add(padelTshirt);
-                    }
-
-
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return sportsSet;
-    }
+//
+//    @Override
+//    public SportsElementViewer createViewer() {
+//        return null;
+//    }
 }

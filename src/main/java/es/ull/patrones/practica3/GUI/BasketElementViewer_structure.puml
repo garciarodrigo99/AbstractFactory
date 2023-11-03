@@ -1,0 +1,179 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "es.ull.patrones.practica3.GUI.BasketElementViewer",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_115893 { 
+   	label=ull
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1377860757 { 
+   	label=patrones
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   BasketElementViewer1670292048[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BasketElementViewer</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   basketballBall: BasketballBall [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   basketballElements: List&lt;Object&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   basketballFootwear: BasketballFootwear [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   basketballTshirt: BasketballTShirt [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   descriptionLabel: JLabel [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   elementList: JList&lt;String&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   listModel: DefaultListModel&lt;String&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   scrollPane: JScrollPane [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ loadAndDisplayElements()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+BasketballBall1743691576[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BasketballBall</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   existences: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   imageLink: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   price: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ throwBall()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+BasketballFootwear1743691576[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BasketballFootwear</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   existences: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   imageLink: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   price: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ putOn()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+BasketballTShirt1743691576[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BasketballTShirt</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   existences: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   imageLink: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   price: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ wearTShirt()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+BasketElementViewer1670292048 -> BasketballBall1743691576[label="basketballBall
+[0..1]"];
+BasketElementViewer1670292048 -> BasketballFootwear1743691576[label="basketballFootwear
+[0..1]"];
+BasketElementViewer1670292048 -> BasketballTShirt1743691576[label="basketballTshirt
+[0..1]"];
+    
+}
+@enduml
